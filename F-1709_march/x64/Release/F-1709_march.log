@@ -1,0 +1,27 @@
+﻿  Cartesian_Test_Task.cpp
+  Main.cpp
+  Melt_SF.cpp
+Melt_SF.cpp(1568): warning C4101: 'name': unreferenced local variable
+  Melt_SF.cpp(1534): note: while compiling class template member function 'void Task_Melt_SF<Triangular_Mesh>::print_extra_data(void)'
+  Melt_SF.cpp(3): note: see reference to class template instantiation 'Task_Melt_SF<Triangular_Mesh>' being compiled
+Melt_SF.cpp(1566): warning C4101: 'file_name': unreferenced local variable
+Melt_SF.cpp(1569): warning C4101: 'wtemp': unreferenced local variable
+Melt_SF.cpp(1567): warning C4101: 'pic_name': unreferenced local variable
+  MS_comparison.cpp
+  Node_2D.cpp
+  Rectangular_Mesh_3.cpp
+  Spline_1D_Interpolative.cpp
+  Spline_1D_Smooth.cpp
+  Stephan_AMT.cpp
+Stephan_AMT.cpp(144): warning C4101: 'file': unreferenced local variable
+  Stephan_AMT.cpp(116): note: while compiling class template member function 'void Stephan_AMT<Mesh_1D_L1>::print_solutions(void)'
+  Stephan_AMT.cpp(687): note: see reference to function template instantiation 'void Stephan_AMT<Mesh_1D_L1>::print_solutions(void)' being compiled
+  d:\projects\f-1709_march\f-1709_march\Stephan_AMT.h(74): note: see reference to class template instantiation 'Stephan_AMT<Mesh_1D_L1>' being compiled
+  Test_1D_Task.cpp
+  Generating code
+  7408 of 14492 functions (51.1%) were compiled, the rest were copied from previous compilation.
+    218 functions were new in current compilation
+    166 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  F-1709_march.vcxproj -> D:\Projects\F-1709_march\x64\Release\F-1709_march.exe
+  F-1709_march.vcxproj -> D:\Projects\F-1709_march\x64\Release\F-1709_march.pdb (Full PDB)

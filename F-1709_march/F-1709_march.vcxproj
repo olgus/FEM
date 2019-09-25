@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Basic_Figure.h" />
+    <ClInclude Include="Cartesian_Test_Task.h" />
+    <ClInclude Include="Condition.h" />
+    <ClInclude Include="Task_convec.h" />
+    <ClInclude Include="Cube_Element.h" />
+    <ClInclude Include="Cubic_Mesh.h" />
+    <ClInclude Include="Cubic_Task.h" />
+    <ClInclude Include="Dynamic_Mesh_Prototype.h" />
+    <ClInclude Include="Edges.h" />
+    <ClInclude Include="Element_1D_Hermitian.h" />
+    <ClInclude Include="Element_1D_hier.h" />
+    <ClInclude Include="Element_1D_L1.h" />
+    <ClInclude Include="Element_Types.h" />
+    <ClInclude Include="Find_theta.h" />
+    <ClInclude Include="Fold.h" />
+    <ClInclude Include="Free_meshing.h" />
+    <ClInclude Include="Integration.h" />
+    <ClInclude Include="MathVector.h" />
+    <ClInclude Include="Matrix.h" />
+    <ClInclude Include="Melt_SF.h" />
+    <ClInclude Include="Mesh_1D_Hermitian.h" />
+    <ClInclude Include="Mesh_1D_Hier.h" />
+    <ClInclude Include="Mesh_1D_L1.h" />
+    <ClInclude Include="Mesh_coord_trans_wrap.h" />
+    <ClInclude Include="Mesh_Pointer.h" />
+    <ClInclude Include="Mesh_processor.h" />
+    <ClInclude Include="Mesh_Types.h" />
+    <ClInclude Include="Mixed_Triangular_Mesh.h" />
+    <ClInclude Include="MS_comparison.h" />
+    <ClInclude Include="NavierStocks.h" />
+    <ClInclude Include="NavierStocksTest.h" />
+    <ClInclude Include="Node_1D.h" />
+    <ClInclude Include="Node_2D.h" />
+    <ClInclude Include="Node_2D_Polar.h" />
+    <ClInclude Include="Node_3D.h" />
+    <ClInclude Include="Node_Types.h" />
+    <ClInclude Include="Nonlinear_nonstationary_system_test_task.h" />
+    <ClInclude Include="Nonlinear_nonstationary_test_task.h" />
+    <ClInclude Include="Non_linear_simple_task.h" />
+    <ClInclude Include="Optimization.h" />
+    <ClInclude Include="Painter.h" />
+    <ClInclude Include="Painter_def.h" />
+    <ClInclude Include="Parallel_realisations.h" />
+    <ClInclude Include="Plumes_conjNs.h" />
+    <ClInclude Include="Point.h" />
+    <ClInclude Include="Point_source_2D.h" />
+    <ClInclude Include="Polar_Task.h" />
+    <ClInclude Include="Prism.h" />
+    <ClInclude Include="Prismatic_Mesh.h" />
+    <ClInclude Include="Prototype_Element.h" />
+    <ClInclude Include="Prototype_Mesh.h" />
+    <ClInclude Include="Prototype_Node.h" />
+    <ClInclude Include="Prototype_Task.h" />
+    <ClInclude Include="Rectangle_Element.h" />
+    <ClInclude Include="Rectangle_Element_3.h" />
+    <ClInclude Include="Rectangle_Hermitian.h" />
+    <ClInclude Include="Rectangular_Mesh.h" />
+    <ClInclude Include="Rectangular_Mesh_3.h" />
+    <ClInclude Include="Rectangular_Mesh_Spline.h" />
+    <ClInclude Include="Region.h" />
+    <ClInclude Include="Solver_definitions.h" />
+    <ClInclude Include="Source_w_field_selection.h" />
+    <ClInclude Include="Sparse_Matrixes.h" />
+    <ClInclude Include="Spline.h" />
+    <ClInclude Include="Spline_1D_Interpolative.h" />
+    <ClInclude Include="Spline_1D_Pointer.h" />
+    <ClInclude Include="Spline_1D_Smooth.h" />
+    <ClInclude Include="Stephan_AMT.h" />
+    <ClInclude Include="Support.h" />
+    <ClInclude Include="Task_2D_point_source.h" />
+    <ClInclude Include="Task_3D_point_source.h" />
+    <ClInclude Include="Task_3D_Prism.h" />
+    <ClInclude Include="Task_3D_simple.h" />
+    <ClInclude Include="Task_Additional_Field.h" />
+    <ClInclude Include="Task_magn_expl.h" />
+    <ClInclude Include="Task_Mesh_Interpolation.h" />
+    <ClInclude Include="Task_Mixed_Tr_Mesh.h" />
+    <ClInclude Include="Task_Pointer.h" />
+    <ClInclude Include="Task_Rectangles_1.h" />
+    <ClInclude Include="Task_Rectangles_3.h" />
+    <ClInclude Include="Task_Triangular_Hierarchical.h" />
+    <ClInclude Include="Task_Types.h" />
+    <ClInclude Include="Task_Vector_2D.h" />
+    <ClInclude Include="Test_1D_Task.h" />
+    <ClInclude Include="Time_Dependent_Task.h" />
+    <ClInclude Include="Time_Dependent_Task_Dynamic_Mesh.h" />
+    <ClInclude Include="Triangle_Element.h" />
+    <ClInclude Include="Triangle_Element_Hier.h" />
+    <ClInclude Include="Triangle_Element_Polar.h" />
+    <ClInclude Include="Triangle_Vector.h" />
+    <ClInclude Include="Triangle_Vector_Mesh.h" />
+    <ClInclude Include="Triangular_Mesh.h" />
+    <ClInclude Include="Triangular_Mesh_Delaunay.h" />
+    <ClInclude Include="Triangular_Mesh_Hier.h" />
+    <ClInclude Include="Triangular_Polar_Mesh.h" />
+    <ClInclude Include="Triangulation.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Basic_Figure.cpp" />
+    <ClCompile Include="Cartesian_Test_Task.cpp" />
+    <ClCompile Include="Condition.cpp" />
+    <ClCompile Include="Cube_Element.cpp" />
+    <ClCompile Include="Cubic_Mesh.cpp" />
+    <ClCompile Include="Cubic_Task.cpp" />
+    <ClCompile Include="Dynamic_Mesh_Prototype.cpp" />
+    <ClCompile Include="Edges.cpp" />
+    <ClCompile Include="Element_1D_Hermitian.cpp" />
+    <ClCompile Include="Element_1D_hier.cpp" />
+    <ClCompile Include="Element_1D_L1.cpp" />
+    <ClCompile Include="Find_theta.cpp" />
+    <ClCompile Include="Free_meshing.cpp" />
+    <ClCompile Include="Integration.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MathVector.cpp" />
+    <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="Melt_SF.cpp" />
+    <ClCompile Include="Mesh_1D_Hermitian.cpp" />
+    <ClCompile Include="Mesh_1D_Hier.cpp" />
+    <ClCompile Include="Mesh_1D_L1.cpp" />
+    <ClCompile Include="Mixed_Triangular_Mesh.cpp" />
+    <ClCompile Include="MS_comparison.cpp" />
+    <ClCompile Include="NavierStocks.cpp" />
+    <ClCompile Include="NavierStocksTest.cpp" />
+    <ClCompile Include="Node_1D.cpp" />
+    <ClCompile Include="Node_2D.cpp" />
+    <ClCompile Include="Node_2D_Polar.cpp" />
+    <ClCompile Include="Node_3D.cpp" />
+    <ClCompile Include="Nonlinear_nonstationary_system_test_task.cpp" />
+    <ClCompile Include="Nonlinear_nonstationary_test_task.cpp" />
+    <ClCompile Include="Non_linear_simple_task.cpp" />
+    <ClCompile Include="Optimization.cpp" />
+    <ClCompile Include="Painter.cpp" />
+    <ClCompile Include="Parallel_realisations.cpp" />
+    <ClCompile Include="Plumes_conjNS.cpp" />
+    <ClCompile Include="Point.cpp" />
+    <ClCompile Include="Polar_Task.cpp" />
+    <ClCompile Include="Prism.cpp" />
+    <ClCompile Include="Prismatic_Mesh.cpp" />
+    <ClCompile Include="Prototype_Element.cpp" />
+    <ClCompile Include="Prototype_Mesh.cpp" />
+    <ClCompile Include="Prototype_Node.cpp" />
+    <ClCompile Include="Prototype_Task.cpp" />
+    <ClCompile Include="Rectangle_Element.cpp" />
+    <ClCompile Include="Rectangle_Element_3.cpp" />
+    <ClCompile Include="Rectangle_Hermitian.cpp" />
+    <ClCompile Include="Rectangular_Mesh.cpp" />
+    <ClCompile Include="Rectangular_Mesh_3.cpp" />
+    <ClCompile Include="Rectangular_Mesh_Spline.cpp" />
+    <ClCompile Include="Source_w_field_selection.cpp" />
+    <ClCompile Include="Sparse_Matrixes.cpp" />
+    <ClCompile Include="Spline.cpp" />
+    <ClCompile Include="Spline_1D_Interpolative.cpp" />
+    <ClCompile Include="Spline_1D_Smooth.cpp" />
+    <ClCompile Include="Stephan_AMT.cpp" />
+    <ClCompile Include="Task_2D_point_source.cpp" />
+    <ClCompile Include="Task_3D_point_source.cpp" />
+    <ClCompile Include="Task_3D_Prism.cpp" />
+    <ClCompile Include="Task_3D_simple.cpp" />
+    <ClCompile Include="Task_Additional_Field.cpp" />
+    <ClCompile Include="Task_convec.cpp" />
+    <ClCompile Include="Task_magn_expl.cpp" />
+    <ClCompile Include="Task_Mesh_Interpolation.cpp" />
+    <ClCompile Include="Task_Mixed_Tr_Mesh.cpp" />
+    <ClCompile Include="Task_Rectangles_1.cpp" />
+    <ClCompile Include="Task_Rectangles_3.cpp" />
+    <ClCompile Include="Task_Triangular_Hierarchical.cpp" />
+    <ClCompile Include="Task_Vector_2D.cpp" />
+    <ClCompile Include="Test_1D_Task.cpp" />
+    <ClCompile Include="Time_Dependent_Task.cpp" />
+    <ClCompile Include="Triangle_Element.cpp" />
+    <ClCompile Include="Triangle_Element_Hier.cpp" />
+    <ClCompile Include="Triangle_Element_Polar.cpp" />
+    <ClCompile Include="Triangle_Vector.cpp" />
+    <ClCompile Include="Triangle_Vector_Mesh.cpp" />
+    <ClCompile Include="Triangular_Mesh.cpp" />
+    <ClCompile Include="Triangular_Mesh_Delaunay.cpp" />
+    <ClCompile Include="Triangular_Mesh_Hier.cpp" />
+    <ClCompile Include="Triangular_Polar_Mesh.cpp" />
+    <ClCompile Include="Triangulation.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0C030766-ED4C-4774-812D-9559DD933C69}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>F1709_march</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseIntelMKL>Parallel</UseIntelMKL>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseIntelMKL>Parallel</UseIntelMKL>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Program Files %28x86%29\IntelSWTools\compilers_and_libraries_2018.3.210\windows\mkl\include\intel64;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\IntelSWTools\compilers_and_libraries_2018.3.210\windows\mkl\lib\intel64_win;C:\Program Files %28x86%29\IntelSWTools\compilers_and_libraries_2018.3.210\windows\compiler\lib\intel64_win;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>C:\Program Files %28x86%29\IntelSWTools\compilers_and_libraries_2018.3.210\windows\redist\intel64_win\compiler;$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Program Files %28x86%29\IntelSWTools\compilers_and_libraries_2018.3.210\windows\mkl\include\intel64;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\IntelSWTools\compilers_and_libraries_2018.3.210\windows\mkl\lib\intel64_win;C:\Program Files %28x86%29\IntelSWTools\compilers_and_libraries_2018.3.210\windows\compiler\lib\intel64_win;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>C:\Program Files %28x86%29\IntelSWTools\compilers_and_libraries_2018.3.210\windows\redist\intel64_win\compiler;$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <OpenMPSupport>true</OpenMPSupport>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>freeglut.lib;gdiplus.lib;libiomp5md.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Projects\F-1709_march\freeglut\lib\x64;D:\Projects\F-1709_march\freeglut\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <OpenMPSupport>true</OpenMPSupport>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>freeglut.lib;gdiplus.lib;libiomp5md.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Projects\F-1709_march\freeglut\lib\x64;D:\Projects\F-1709_march\freeglut\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

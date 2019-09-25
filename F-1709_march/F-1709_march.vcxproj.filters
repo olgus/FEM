@@ -1,0 +1,607 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{a55ba6cc-2a3b-4472-b0f7-f11d54093d4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{b61556ec-e40d-40c3-b3c1-c58f526c6cca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Mesh Realizations">
+      <UniqueIdentifier>{5bec1d6a-ca29-4798-b9d1-85b9003e9e63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Task Realizations">
+      <UniqueIdentifier>{1374323a-b618-482e-b7cc-6f4aa987ab47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Element Realizations">
+      <UniqueIdentifier>{f325b9d7-97d8-4a1e-be22-b4e6b3046077}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prototypes">
+      <UniqueIdentifier>{b856a4cb-5543-4600-8f7b-dbe1b55421f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Node Realizations">
+      <UniqueIdentifier>{0fe78214-1c7e-4b71-af6e-397e702965e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Solver">
+      <UniqueIdentifier>{cf858cd8-9050-4bcc-b2e5-20793f943e3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Type Headers">
+      <UniqueIdentifier>{ba9f5f0f-ae93-48e4-9a1f-c7920c7f5c23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Triangulation">
+      <UniqueIdentifier>{90742ef6-0233-49d2-bed6-15bf47157fdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Painter">
+      <UniqueIdentifier>{5b7d4381-6d62-4718-ac1b-1d2cf727f55a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Support">
+      <UniqueIdentifier>{57899373-e2e5-4266-a9e7-84112ebf3588}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Mesh Realizations">
+      <UniqueIdentifier>{b4b09881-1444-412a-9d59-57a6e74ce54c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Element Realizations">
+      <UniqueIdentifier>{c178be47-2b56-4552-9541-c7e5b55760ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Support">
+      <UniqueIdentifier>{2a45c0c8-bae3-41fe-9f5b-b645e17c9744}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Painter">
+      <UniqueIdentifier>{0591e445-c016-4505-a345-832a2ecb61b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Triangulation">
+      <UniqueIdentifier>{6791b02d-9a90-4629-b23e-2ccdfef3b7a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Solver">
+      <UniqueIdentifier>{ba46a8a8-040a-42a4-a4a6-d32cb3f1454c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Node Realizations">
+      <UniqueIdentifier>{2a3ffe47-6b29-47f0-b2c2-adbf25d02f6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prototypes">
+      <UniqueIdentifier>{5dc90a81-b4bd-490c-bdd0-a54c50c1863b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Task Realizations">
+      <UniqueIdentifier>{c9b6cdd6-53e3-41ad-8eff-6a9dcd946794}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Cartesian_Test_Task.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Cubic_Task.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Cubic_Mesh.h">
+      <Filter>Header Files\Mesh Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Cube_Element.h">
+      <Filter>Header Files\Element Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Element_1D_Hermitian.h">
+      <Filter>Header Files\Element Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Element_1D_hier.h">
+      <Filter>Header Files\Element Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Element_1D_L1.h">
+      <Filter>Header Files\Element Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Task_Vector_2D.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Test_1D_Task.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Time_Dependent_Task_Dynamic_Mesh.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Task_Triangular_Hierarchical.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Task_2D_point_source.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Task_3D_point_source.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Task_3D_Prism.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Task_3D_simple.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Task_Additional_Field.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Task_magn_expl.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Task_Mesh_Interpolation.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Task_Mixed_Tr_Mesh.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Task_Pointer.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Task_Rectangles_1.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Task_Rectangles_3.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Spline.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Non_linear_simple_task.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="NavierStocksTest.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="NavierStocks.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Prismatic_Mesh.h">
+      <Filter>Header Files\Mesh Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Mixed_Triangular_Mesh.h">
+      <Filter>Header Files\Mesh Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Prototype_Element.h">
+      <Filter>Header Files\Prototypes</Filter>
+    </ClInclude>
+    <ClInclude Include="Prototype_Mesh.h">
+      <Filter>Header Files\Prototypes</Filter>
+    </ClInclude>
+    <ClInclude Include="Prototype_Node.h">
+      <Filter>Header Files\Prototypes</Filter>
+    </ClInclude>
+    <ClInclude Include="Prototype_Task.h">
+      <Filter>Header Files\Prototypes</Filter>
+    </ClInclude>
+    <ClInclude Include="Time_Dependent_Task.h">
+      <Filter>Header Files\Prototypes</Filter>
+    </ClInclude>
+    <ClInclude Include="Node_1D.h">
+      <Filter>Header Files\Node Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Node_2D.h">
+      <Filter>Header Files\Node Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Node_2D_Polar.h">
+      <Filter>Header Files\Node Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Node_3D.h">
+      <Filter>Header Files\Node Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Point_source_2D.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Dynamic_Mesh_Prototype.h">
+      <Filter>Header Files\Mesh Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh_1D_Hermitian.h">
+      <Filter>Header Files\Mesh Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh_1D_Hier.h">
+      <Filter>Header Files\Mesh Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh_1D_L1.h">
+      <Filter>Header Files\Mesh Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangle_Element.h">
+      <Filter>Header Files\Element Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangle_Element_3.h">
+      <Filter>Header Files\Element Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangle_Hermitian.h">
+      <Filter>Header Files\Element Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle_Element.h">
+      <Filter>Header Files\Element Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle_Element_Hier.h">
+      <Filter>Header Files\Element Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle_Element_Polar.h">
+      <Filter>Header Files\Element Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle_Vector.h">
+      <Filter>Header Files\Element Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Melt_SF.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Polar_Task.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Plumes_conjNs.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Solver_definitions.h">
+      <Filter>Header Files\Solver</Filter>
+    </ClInclude>
+    <ClInclude Include="Sparse_Matrixes.h">
+      <Filter>Header Files\Solver</Filter>
+    </ClInclude>
+    <ClInclude Include="Spline_1D_Pointer.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Spline_1D_Smooth.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Spline_1D_Interpolative.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Source_w_field_selection.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangular_Mesh_Delaunay.h">
+      <Filter>Header Files\Mesh Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle_Vector_Mesh.h">
+      <Filter>Header Files\Mesh Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangular_Mesh.h">
+      <Filter>Header Files\Mesh Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangular_Mesh_Hier.h">
+      <Filter>Header Files\Mesh Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangular_Polar_Mesh.h">
+      <Filter>Header Files\Mesh Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangular_Mesh.h">
+      <Filter>Header Files\Mesh Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangular_Mesh_3.h">
+      <Filter>Header Files\Mesh Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangular_Mesh_Spline.h">
+      <Filter>Header Files\Mesh Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Node_Types.h">
+      <Filter>Header Files\Type Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh_Types.h">
+      <Filter>Header Files\Type Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Task_Types.h">
+      <Filter>Header Files\Type Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Element_Types.h">
+      <Filter>Header Files\Type Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Prism.h">
+      <Filter>Header Files\Element Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
+      <Filter>Header Files\Solver</Filter>
+    </ClInclude>
+    <ClInclude Include="MathVector.h">
+      <Filter>Header Files\Solver</Filter>
+    </ClInclude>
+    <ClInclude Include="Stephan_AMT.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Parallel_realisations.h">
+      <Filter>Header Files\Solver</Filter>
+    </ClInclude>
+    <ClInclude Include="Find_theta.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Basic_Figure.h">
+      <Filter>Header Files\Triangulation</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangulation.h">
+      <Filter>Header Files\Triangulation</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh_Pointer.h">
+      <Filter>Header Files\Prototypes</Filter>
+    </ClInclude>
+    <ClInclude Include="Painter_def.h">
+      <Filter>Header Files\Painter</Filter>
+    </ClInclude>
+    <ClInclude Include="Painter.h">
+      <Filter>Header Files\Painter</Filter>
+    </ClInclude>
+    <ClInclude Include="Edges.h">
+      <Filter>Header Files\Support</Filter>
+    </ClInclude>
+    <ClInclude Include="Condition.h">
+      <Filter>Header Files\Support</Filter>
+    </ClInclude>
+    <ClInclude Include="Fold.h">
+      <Filter>Header Files\Support</Filter>
+    </ClInclude>
+    <ClInclude Include="Free_meshing.h">
+      <Filter>Header Files\Triangulation</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh_coord_trans_wrap.h">
+      <Filter>Header Files\Mesh Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Optimization.h">
+      <Filter>Header Files\Support</Filter>
+    </ClInclude>
+    <ClInclude Include="Integration.h">
+      <Filter>Header Files\Support</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh_processor.h">
+      <Filter>Header Files\Mesh Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="MS_comparison.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Support.h">
+      <Filter>Header Files\Support</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>Header Files\Support</Filter>
+    </ClInclude>
+    <ClInclude Include="Region.h">
+      <Filter>Header Files\Support</Filter>
+    </ClInclude>
+    <ClInclude Include="Nonlinear_nonstationary_test_task.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Nonlinear_nonstationary_system_test_task.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+    <ClInclude Include="Task_convec.h">
+      <Filter>Header Files\Task Realizations</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cubic_Mesh.cpp">
+      <Filter>Source Files\Mesh Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Dynamic_Mesh_Prototype.cpp">
+      <Filter>Source Files\Mesh Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh_1D_Hermitian.cpp">
+      <Filter>Source Files\Mesh Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh_1D_Hier.cpp">
+      <Filter>Source Files\Mesh Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh_1D_L1.cpp">
+      <Filter>Source Files\Mesh Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Mixed_Triangular_Mesh.cpp">
+      <Filter>Source Files\Mesh Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Prismatic_Mesh.cpp">
+      <Filter>Source Files\Mesh Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangular_Mesh_3.cpp">
+      <Filter>Source Files\Mesh Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangular_Mesh.cpp">
+      <Filter>Source Files\Mesh Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangular_Mesh_Spline.cpp">
+      <Filter>Source Files\Mesh Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangular_Mesh.cpp">
+      <Filter>Source Files\Mesh Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangle_Vector_Mesh.cpp">
+      <Filter>Source Files\Mesh Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangular_Mesh_Delaunay.cpp">
+      <Filter>Source Files\Mesh Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangular_Mesh_Hier.cpp">
+      <Filter>Source Files\Mesh Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangular_Polar_Mesh.cpp">
+      <Filter>Source Files\Mesh Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Element_1D_Hermitian.cpp">
+      <Filter>Source Files\Element Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Element_1D_hier.cpp">
+      <Filter>Source Files\Element Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Element_1D_L1.cpp">
+      <Filter>Source Files\Element Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Cube_Element.cpp">
+      <Filter>Source Files\Element Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Prism.cpp">
+      <Filter>Source Files\Element Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangle_Element.cpp">
+      <Filter>Source Files\Element Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangle_Element_3.cpp">
+      <Filter>Source Files\Element Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangle_Hermitian.cpp">
+      <Filter>Source Files\Element Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangle_Element.cpp">
+      <Filter>Source Files\Element Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangle_Element_Hier.cpp">
+      <Filter>Source Files\Element Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangle_Element_Polar.cpp">
+      <Filter>Source Files\Element Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangle_Vector.cpp">
+      <Filter>Source Files\Element Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Condition.cpp">
+      <Filter>Source Files\Support</Filter>
+    </ClCompile>
+    <ClCompile Include="Edges.cpp">
+      <Filter>Source Files\Support</Filter>
+    </ClCompile>
+    <ClCompile Include="Integration.cpp">
+      <Filter>Source Files\Support</Filter>
+    </ClCompile>
+    <ClCompile Include="Optimization.cpp">
+      <Filter>Source Files\Support</Filter>
+    </ClCompile>
+    <ClCompile Include="Point.cpp">
+      <Filter>Source Files\Support</Filter>
+    </ClCompile>
+    <ClCompile Include="Painter.cpp">
+      <Filter>Source Files\Painter</Filter>
+    </ClCompile>
+    <ClCompile Include="Basic_Figure.cpp">
+      <Filter>Source Files\Triangulation</Filter>
+    </ClCompile>
+    <ClCompile Include="Free_meshing.cpp">
+      <Filter>Source Files\Triangulation</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangulation.cpp">
+      <Filter>Source Files\Triangulation</Filter>
+    </ClCompile>
+    <ClCompile Include="MathVector.cpp">
+      <Filter>Source Files\Solver</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix.cpp">
+      <Filter>Source Files\Solver</Filter>
+    </ClCompile>
+    <ClCompile Include="Sparse_Matrixes.cpp">
+      <Filter>Source Files\Solver</Filter>
+    </ClCompile>
+    <ClCompile Include="Parallel_realisations.cpp">
+      <Filter>Source Files\Solver</Filter>
+    </ClCompile>
+    <ClCompile Include="Node_1D.cpp">
+      <Filter>Source Files\Node Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Node_2D.cpp">
+      <Filter>Source Files\Node Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Node_2D_Polar.cpp">
+      <Filter>Source Files\Node Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Node_3D.cpp">
+      <Filter>Source Files\Node Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Prototype_Element.cpp">
+      <Filter>Source Files\Prototypes</Filter>
+    </ClCompile>
+    <ClCompile Include="Prototype_Mesh.cpp">
+      <Filter>Source Files\Prototypes</Filter>
+    </ClCompile>
+    <ClCompile Include="Prototype_Node.cpp">
+      <Filter>Source Files\Prototypes</Filter>
+    </ClCompile>
+    <ClCompile Include="Prototype_Task.cpp">
+      <Filter>Source Files\Prototypes</Filter>
+    </ClCompile>
+    <ClCompile Include="Time_Dependent_Task.cpp">
+      <Filter>Source Files\Prototypes</Filter>
+    </ClCompile>
+    <ClCompile Include="Cartesian_Test_Task.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Cubic_Task.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Find_theta.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Melt_SF.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="MS_comparison.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="NavierStocks.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="NavierStocksTest.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Non_linear_simple_task.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Plumes_conjNS.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Polar_Task.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Source_w_field_selection.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Spline.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Spline_1D_Interpolative.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Spline_1D_Smooth.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Stephan_AMT.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Task_2D_point_source.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Task_3D_point_source.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Task_3D_Prism.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Task_3D_simple.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Task_Additional_Field.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Task_magn_expl.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Task_Mesh_Interpolation.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Task_Mixed_Tr_Mesh.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Task_Rectangles_1.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Task_Rectangles_3.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Task_Triangular_Hierarchical.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Task_Vector_2D.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Test_1D_Task.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Nonlinear_nonstationary_test_task.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Nonlinear_nonstationary_system_test_task.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+    <ClCompile Include="Task_convec.cpp">
+      <Filter>Source Files\Task Realizations</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

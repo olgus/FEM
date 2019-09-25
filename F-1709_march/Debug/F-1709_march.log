@@ -1,0 +1,199 @@
+﻿  Triangulation.cpp
+d:\projects\f-1709_march\triangulation.cpp(7): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+d:\projects\f-1709_march\triangulation.cpp(9): error C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+d:\projects\f-1709_march\triangulation.cpp(12): error C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+d:\projects\f-1709_march\triangulation.cpp(16): error C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+d:\projects\f-1709_march\triangulation.cpp(19): error C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+d:\projects\f-1709_march\triangulation.cpp(28): error C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+d:\projects\f-1709_march\triangulation.cpp(30): error C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+d:\projects\f-1709_march\triangulation.cpp(32): error C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+d:\projects\f-1709_march\triangulation.cpp(40): error C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+d:\projects\f-1709_march\triangulation.cpp(48): error C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+d:\projects\f-1709_march\triangulation.cpp(57): error C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+d:\projects\f-1709_march\triangulation.cpp(61): error C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+d:\projects\f-1709_march\triangulation.cpp(72): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+d:\projects\f-1709_march\triangulation.cpp(130): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+d:\projects\f-1709_march\triangulation.cpp(132): error C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+d:\projects\f-1709_march\triangulation.cpp(135): error C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+d:\projects\f-1709_march\triangulation.cpp(139): error C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+d:\projects\f-1709_march\triangulation.cpp(142): error C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+d:\projects\f-1709_march\triangulation.cpp(151): error C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+d:\projects\f-1709_march\triangulation.cpp(153): error C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+d:\projects\f-1709_march\triangulation.cpp(155): error C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+d:\projects\f-1709_march\triangulation.cpp(163): error C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+d:\projects\f-1709_march\triangulation.cpp(175): error C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1193): note: see declaration of 'fscanf'
+  Triangular_Polar_Mesh.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Triangular_Mesh_Hier.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Triangular_Mesh_Delaunay.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Triangular_Mesh_Delaunay - копия.cpp
+  Triangular_Mesh.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Triangle_Vector_Mesh.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Triangle_Vector.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Triangle_Element_Polar.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Triangle_Element_Hier.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Triangle_Element.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Time_Dependent_Task.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Test_1D_Task.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Task_Vector_2D.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Task_Triangular_Hierarchical.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Task_Rectangles_3.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Task_Rectangles_1.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Task_Mixed_Tr_Mesh.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Task_Mesh_Interpolation.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Task_magn_expl.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Generating Code...
+  Compiling...
+  Task_Additional_Field.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Task_3D_simple.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Task_3D_Prism.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Task_3D_point_source.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Task_2D_point_source.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Stephan_AMT.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Spline_1D_Smooth.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Spline_1D_Interpolative.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Spline.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Sparse_Matrixes.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Source_w_field_selection.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Remeshing_on_a_go.cpp
+d:\projects\f-1709_march\remeshing_on_a_go.cpp(1): fatal error C1083: Cannot open include file: 'Remeshing_on_a_go.h': No such file or directory
+  Rectangular_Mesh_Spline.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Rectangular_Mesh_3.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Rectangular_Mesh.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Rectangle_Hermitian.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Rectangle_Element_3.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Rectangle_Element.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Prototype_Task.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Prototype_Node.cpp
+  Generating Code...
+  Compiling...
+  Prototype_Mesh.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Prototype_Element.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Prismatic_Mesh.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Prism.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Polar_Task.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Point.cpp
+  Plumes_conjNS.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Parallel_realisations.cpp
+  Painter.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Optimization.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Node_3D.cpp
+  Node_2D_Polar.cpp
+  Node_2D.cpp
+  Node_1D.cpp
+  NavierStocksTest.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  NavierStocks.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  MS_comparison.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Mixed_Triangular_Mesh.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Mesh_1D_L1.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Mesh_1D_Hier.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Generating Code...
+  Compiling...
+  Mesh_1D_Hermitian.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Melt_SF.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Matrix.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  MathVector.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Main.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Integration.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Free_meshing.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Find_theta.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Element_1D_L1.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Element_1D_hier.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Element_1D_Hermitian.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Edges.cpp
+  Dynamic_Mesh_Prototype.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Cubic_Task.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Cubic_Mesh.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Cube_Element.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Condition.cpp
+  Cartesian_Test_Task.cpp
+d:\projects\f-1709_march\mathvector.h(6): fatal error C1083: Cannot open include file: 'mkl.h': No such file or directory
+  Basic_Figure.cpp
+  Generating Code...
