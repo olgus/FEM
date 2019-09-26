@@ -9,7 +9,7 @@ protected:
 public:
 	Element_1D_L1 ();
 	Element_1D_L1 (const Element_1D_L1 & e);
-	~Element_1D_L1 ();
+	virtual ~Element_1D_L1 ();
 
 	virtual double get_geometrical_area () override; // returns geometrical area
 	virtual bool point_inside (const Mesh_Prototype & mesh, double * coordinates) override; // check if point defined by coordinates is in the element
