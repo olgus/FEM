@@ -1,4 +1,13 @@
 ﻿  Cartesian_Test_Task.cpp
+  Cubic_Mesh.cpp
+  Cubic_Task.cpp
+  Dynamic_Mesh_Prototype.cpp
+  Element_1D_Hermitian.cpp
+  Element_1D_L1.cpp
+  Element_1D_hier.cpp
+  Find_theta.cpp
+  Free_meshing.cpp
+  MS_comparison.cpp
   Main.cpp
   Melt_SF.cpp
 Melt_SF.cpp(1568): warning C4101: 'name': unreferenced local variable
@@ -7,9 +16,43 @@ Melt_SF.cpp(1568): warning C4101: 'name': unreferenced local variable
 Melt_SF.cpp(1566): warning C4101: 'file_name': unreferenced local variable
 Melt_SF.cpp(1569): warning C4101: 'wtemp': unreferenced local variable
 Melt_SF.cpp(1567): warning C4101: 'pic_name': unreferenced local variable
-  MS_comparison.cpp
-  Node_2D.cpp
+  Mesh_1D_Hermitian.cpp
+  Mesh_1D_Hier.cpp
+  Mesh_1D_L1.cpp
+  Mixed_Triangular_Mesh.cpp
+  NavierStocks.cpp
+  NavierStocksTest.cpp
+  Non_linear_simple_task.cpp
+  Nonlinear_nonstationary_system_test_task.cpp
+Nonlinear_nonstationary_system_test_task.cpp(163): warning C4101: 't2': unreferenced local variable
+Nonlinear_nonstationary_system_test_task.cpp(163): warning C4101: 't1': unreferenced local variable
+Nonlinear_nonstationary_system_test_task.cpp(162): warning C4101: 'ms': unreferenced local variable
+Nonlinear_nonstationary_system_test_task.cpp(444): warning C4101: 'kF': unreferenced local variable
+Nonlinear_nonstationary_system_test_task.cpp(871): warning C4101: 'pic_name': unreferenced local variable
+  Compiling...
+  Nonlinear_nonstationary_test_task.cpp
+Nonlinear_nonstationary_test_task.cpp(486): warning C4101: 'lambda': unreferenced local variable
+Nonlinear_nonstationary_test_task.cpp(485): warning C4101: 'area': unreferenced local variable
+  Painter.cpp
+Painter.cpp(483): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+Painter.cpp(492): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+Painter.cpp(950): warning C4101: 'counter': unreferenced local variable
+Painter.cpp(1266): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+Painter.cpp(1272): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+Painter.cpp(1273): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+Painter.cpp(1293): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+Painter.cpp(1294): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+  Plumes_conjNS.cpp
+  Polar_Task.cpp
+  Prismatic_Mesh.cpp
+  Prototype_Mesh.cpp
+  Prototype_Task.cpp
+  Rectangular_Mesh.cpp
   Rectangular_Mesh_3.cpp
+  Rectangular_Mesh_Spline.cpp
+  Source_w_field_selection.cpp
+Source_w_field_selection.cpp(23): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  Spline.cpp
   Spline_1D_Interpolative.cpp
   Spline_1D_Smooth.cpp
   Stephan_AMT.cpp
@@ -17,11 +60,40 @@ Stephan_AMT.cpp(144): warning C4101: 'file': unreferenced local variable
   Stephan_AMT.cpp(116): note: while compiling class template member function 'void Stephan_AMT<Mesh_1D_L1>::print_solutions(void)'
   Stephan_AMT.cpp(687): note: see reference to function template instantiation 'void Stephan_AMT<Mesh_1D_L1>::print_solutions(void)' being compiled
   d:\projects\f-1709_march\f-1709_march\Stephan_AMT.h(74): note: see reference to class template instantiation 'Stephan_AMT<Mesh_1D_L1>' being compiled
+  Task_2D_point_source.cpp
+  Task_3D_Prism.cpp
+  Task_3D_point_source.cpp
+  Task_3D_simple.cpp
+  Task_Additional_Field.cpp
+  Compiling...
+  Task_Mesh_Interpolation.cpp
+  Task_Mixed_Tr_Mesh.cpp
+  Task_Rectangles_1.cpp
+  Task_Rectangles_3.cpp
+  Task_Triangular_Hierarchical.cpp
+  Task_Vector_2D.cpp
+  Task_convec.cpp
+Task_convec.cpp(228): warning C4101: 't2': unreferenced local variable
+Task_convec.cpp(228): warning C4101: 't1': unreferenced local variable
+Task_convec.cpp(227): warning C4101: 'ms': unreferenced local variable
+Task_convec.cpp(639): warning C4101: 'kF': unreferenced local variable
+Task_convec.cpp(1068): warning C4101: 'pic_name': unreferenced local variable
+  Task_magn_expl.cpp
   Test_1D_Task.cpp
+  Time_Dependent_Task.cpp
+  Triangle_Vector_Mesh.cpp
+  Triangular_Mesh.cpp
+  Triangular_Mesh_Delaunay.cpp
+Triangular_Mesh_Delaunay.cpp(520): warning C4101: 'k_triangle': unreferenced local variable
+Triangular_Mesh_Delaunay.cpp(522): warning C4101: 'dist': unreferenced local variable
+Triangular_Mesh_Delaunay.cpp(521): warning C4101: 'c': unreferenced local variable
+Triangular_Mesh_Delaunay.cpp(522): warning C4101: 'l_dist': unreferenced local variable
+  Triangular_Mesh_Hier.cpp
+  Triangular_Polar_Mesh.cpp
   Generating code
-  7408 of 14492 functions (51.1%) were compiled, the rest were copied from previous compilation.
-    218 functions were new in current compilation
-    166 functions had inline decision re-evaluated but remain unchanged
+  1287 of 14492 functions ( 8.9%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    312 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   F-1709_march.vcxproj -> D:\Projects\F-1709_march\x64\Release\F-1709_march.exe
   F-1709_march.vcxproj -> D:\Projects\F-1709_march\x64\Release\F-1709_march.pdb (Full PDB)
