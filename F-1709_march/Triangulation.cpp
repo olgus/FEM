@@ -72,7 +72,7 @@ namespace Triangulation
 		FILE * file = fopen (file_output, "w");
 		for (int i = 0, i_end = (int)gen_points.size (); i < i_end; i++)
 		{
-			fprintf (file, "%lf %lf\n", gen_points[i].x, gen_points[i].y);
+			fprintf (file, "%.15lf %.15lf\n", gen_points[i].x, gen_points[i].y);
 		}
 		fclose (file);
 	}
@@ -125,7 +125,7 @@ namespace Triangulation
 		generate_on_basic_figures ();
 	}
 
-	void Point_Generator::read_points (char * file_input)
+	void Point_Generator::read_points (char * file_input, char * file_points_input)
 	{
 		FILE * file = fopen (file_input, "r");
 		// amount of mesh base points
@@ -166,7 +166,9 @@ namespace Triangulation
 				basic_figures[i]->sort_points ();
 			}
 		}
+		fclose (file);
 
+		file = fopen (file_points_input, "r");
 		// read points
 		{
 			double x, y;

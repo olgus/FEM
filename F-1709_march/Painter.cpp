@@ -926,7 +926,10 @@ void Painter::draw_block_iso ()
 	std::vector<IsovalueSection> isolines_data;
 
 	// set isovalues
-	double dif = (max_value - min_value) / max_value;
+	double dif = (max_value - min_value);
+	if (fabs (max_value) > 1e-10)
+		dif /= max_value;
+
 	if (fabs (dif) > 1e-25)
 	{
 		double step = (max_value - min_value) / (N_isovalues + 1);
@@ -1212,44 +1215,47 @@ void Painter::draw_block_mesh ()
 			glEnd ();
 
 			// number 
+			if ((mesh_data & DRAW_SETUP_MESH_MARKERS) == DRAW_SETUP_MESH_MARKERS)
+			{
+				for (int j = 0; j < 2; j++)
+					center[j] /= 3.0;
 
-			//for (int j = 0; j < 2; j++)
-			//	center[j] /= 3.0;
-
-			//char n_el[16];
-			//sprintf (n_el, "%i", i);
-			//glColor3f ((GLfloat)0.2, (GLfloat)0.25, (GLfloat)0.77);
-			//glRasterPos2f ((GLfloat)(center[0] - 0.01), (GLfloat)(center[1]));
-			//for (int j = 0; j < strlen (n_el); j++)
-			//{
-			//	glutBitmapCharacter (painter_font, n_el[j]);
-			//}
+				char n_el[16];
+				sprintf (n_el, "%i", i);
+				glColor3f ((GLfloat)0.2, (GLfloat)0.25, (GLfloat)0.77);
+				glRasterPos2f ((GLfloat)(center[0]), (GLfloat)(center[1]));
+				for (int j = 0; j < strlen (n_el); j++)
+				{
+					glutBitmapCharacter (painter_font, n_el[j]);
+				}
+			}
 		}
 	}
 
 	// nodes
-	//{
-	//	double point[2];
-	//	for (int i = 0, i_end = mesh->get_n_nodes (); i < i_end; i++)
-	//	{
-	//		mesh->get_node_coordinates (i, point);
+	if ((mesh_data & DRAW_SETUP_MESH_MARKERS) == DRAW_SETUP_MESH_MARKERS)
+	{
+		double point[2];
+		for (int i = 0, i_end = mesh->get_n_nodes (); i < i_end; i++)
+		{
+			mesh->get_node_coordinates (i, point);
 
-	//		glColor3f ((GLfloat)0.0, (GLfloat)0.0, (GLfloat)0.0);
-	//		glPointSize (point_size);
-	//		glBegin (GL_POINTS);
-	//		glVertex3f (point[0], point[1], 0.0);
-	//		glEnd ();
+			glColor3f ((GLfloat)0.0, (GLfloat)0.0, (GLfloat)0.0);
+			glPointSize (point_size);
+			glBegin (GL_POINTS);
+			glVertex3f (point[0], point[1], 0.0);
+			glEnd ();
 
-	//		char n_el[16];
-	//		sprintf (n_el, "%i", i);
-	//		glColor3f ((GLfloat)0.73, (GLfloat)0.24, (GLfloat)0.68);
-	//		glRasterPos2f ((GLfloat)(point[0]), (GLfloat)(point[1] + 0.005));
-	//		for (int j = 0; j < strlen (n_el); j++)
-	//		{
-	//			glutBitmapCharacter (painter_font, n_el[j]);
-	//		}
-	//	}
-	//}
+			char n_el[16];
+			sprintf (n_el, "%i", i);
+			glColor3f ((GLfloat)0.73, (GLfloat)0.24, (GLfloat)0.68);
+			glRasterPos2f ((GLfloat)(point[0]), (GLfloat)(point[1]));
+			for (int j = 0; j < strlen (n_el); j++)
+			{
+				glutBitmapCharacter (painter_font, n_el[j]);
+			}
+		}
+	}
 	glPopMatrix ();
 }
 
@@ -1501,7 +1507,7 @@ void Painter::draw_block_strokes ()
 				glColor3f ((GLfloat)0.0, (GLfloat)0.0, (GLfloat)0.0);
 				char n_el[16];
 
-				if (fabs (x_axis_step) < 0.009)
+				if ((fabs (x_axis_step) < 0.009) || (fabs (x_axis_step) > 9e+3))
 					sprintf (n_el, "%.1e", x);
 				else
 					sprintf (n_el, "%.2lf", x);
@@ -1567,7 +1573,7 @@ void Painter::draw_block_strokes ()
 				glColor3f (0.0, 0.0, 0.0);
 				char n_el[16];
 
-				if (fabs (y_axis_step) < 0.009)
+				if ((fabs (y_axis_step) < 0.009) || (fabs (y_axis_step) > 9e+3))
 					sprintf (n_el, "%.2e", y);
 				else
 					sprintf (n_el, "%.2lf", y);
@@ -2202,6 +2208,7 @@ int Painter::GetEncoderClsid (const WCHAR* format, CLSID* pClsid)
 
 bool Painter::CaptureScreenShot ()
 {
+	int size = width * height;
 	UINT * pixels = new UINT[width * height];
 	memset (pixels, 0, sizeof (UINT)* width * height);
 
@@ -2536,6 +2543,11 @@ void Painter::add_area_dividers ()
 void Painter::set_point_size (double Point_size)
 {
 	point_size = Point_size;
+}
+
+void Painter::add_mesh_markers ()
+{
+	mesh_data = mesh_data | DRAW_SETUP_MESH_MARKERS;
 }
 
 void Painter::draw_gradient_field (int K_system)

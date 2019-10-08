@@ -1,3 +1,7 @@
-﻿  Main.cpp
+﻿  Triangular_Mesh_Delaunay.cpp
+d:\projects\f-1709_march\f-1709_march\triangular_mesh_delaunay.cpp(524): warning C4101: 'k_triangle': unreferenced local variable
+d:\projects\f-1709_march\f-1709_march\triangular_mesh_delaunay.cpp(526): warning C4101: 'dist': unreferenced local variable
+d:\projects\f-1709_march\f-1709_march\triangular_mesh_delaunay.cpp(525): warning C4101: 'c': unreferenced local variable
+d:\projects\f-1709_march\f-1709_march\triangular_mesh_delaunay.cpp(526): warning C4101: 'l_dist': unreferenced local variable
   F-1709_march.vcxproj -> D:\Projects\F-1709_march\x64\Debug\F-1709_march.exe
   F-1709_march.vcxproj -> D:\Projects\F-1709_march\x64\Debug\F-1709_march.pdb (Full PDB)

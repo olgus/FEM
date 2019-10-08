@@ -25,12 +25,31 @@ bool Task_convec::solve_task (int solver_param[][5])
 			return false;
 		}
 
+		// set ffb flags
+		set_ffb_flags ();
+
+		// set Pr, Gr splines
+		if (PRGRconst == 0)
+		{
+			double extra[] = {1e-10, 1e-10};
+			double step = 1.0;
+			spline_Pr = new Spline_1D_Smooth ();
+			spline_Pr->prepare ("Source Files//TC//spline_Pr.txt", extra, step);
+			spline_Pr->solve_task ();
+
+			spline_Gr = new Spline_1D_Smooth ();
+			spline_Gr->prepare ("Source Files//TC//spline_Gr.txt", extra, step);
+			spline_Gr->solve_task ();
+		}
+
 		// n_systems is set in preparation to 1 by default
 		non_linear_layers_solutions = new MathVector[n_systems];
-		MathVector * prev_non_linear_layers_solutions = new MathVector (eq_matrixes[0].Size ());
+		MathVector * prev_non_linear_layers_solutions = new MathVector[n_systems];
+
 		for (int k_system = 0; k_system < n_systems; k_system++)
 		{
 			non_linear_layers_solutions[k_system].setSize (eq_matrixes[k_system].Size ()); // default starting solution point is 0
+			prev_non_linear_layers_solutions[k_system].setSize (eq_matrixes[k_system].Size ()); // default starting solution point is 0
 		}
 
 		double sum_non_linear_dif;
@@ -43,6 +62,9 @@ bool Task_convec::solve_task (int solver_param[][5])
 		// 0 non_linear solution is a start solution
 		if (start_cond)
 			set_starting_conditions ();
+
+		// states
+		state = new int[N_functions];
 
 		int solver_iterations;
 		bool found = false;
@@ -60,6 +82,8 @@ bool Task_convec::solve_task (int solver_param[][5])
 				non_linear_layers_solutions[k_system].Copy ((previous_time_layers_solutions[k_system][0]));
 			}
 
+			reset_states ();
+
 			for (int k_nl_iter = 0; k_nl_iter < MAX_TC_NONLINEAR_ITER && !found; k_nl_iter++)
 			{
 				K_NON_LINEAR_ITER = k_nl_iter;
@@ -76,16 +100,29 @@ bool Task_convec::solve_task (int solver_param[][5])
 				for (int k_system = 0; k_system < n_systems; k_system++)
 				{
 					// save prev non linear solution
-					prev_non_linear_layers_solutions->Copy (non_linear_layers_solutions[k_system]);
+					prev_non_linear_layers_solutions[k_system].Copy (non_linear_layers_solutions[k_system]);
+				}
+#pragma omp parallel for num_threads (n_systems) 
+				for (int k_system = 0; k_system < n_systems; k_system++)
+				{
 					// set starting point for the solver
 					eq_matrixes[k_system].set_starting_point (&(non_linear_layers_solutions[k_system])); // set last layer solution as x0 for solver
-																										 // build system
+					// build system
 					build_system (k_system);
 					// apply boundary conditions
 					apply_boundary_conditions (k_system); // apply boundary conditions
-														  // solve it
-					solver_iterations = eq_matrixes[k_system].solve (solver_param[k_system]);
+				}
 
+				// solve it
+				//eq_matrixes[0].fprint ("Test//matrix.txt");
+				for (int k_system = 0; k_system < n_systems; k_system++)
+				{
+					solver_iterations = eq_matrixes[k_system].solve (solver_param[k_system]);
+				}
+
+#pragma omp parallel for num_threads (n_systems)
+				for (int k_system = 0; k_system < n_systems; k_system++)
+				{
 					// TODO relax
 					// for now just copy the solution from the matrix
 					//eq_matrixes[k_system].get_solution (&(non_linear_layers_solutions[k_system]));
@@ -95,21 +132,21 @@ bool Task_convec::solve_task (int solver_param[][5])
 					//else
 					//	non_linear_discr[k_system] = relax (k_system, 0.3, *prev_non_linear_layers_solutions);
 					
-					//non_linear_discr[k_system] = relax (k_system, *prev_non_linear_layers_solutions);
+					// non_linear_discr[k_system] = relax (k_system, *prev_non_linear_layers_solutions);
 				
 					if (k_system == 0)
-						non_linear_discr[k_system] = relax (k_system, 0.1, 1.0, *prev_non_linear_layers_solutions);
+						non_linear_discr[k_system] = relax (k_system, 0.1, 1.0, prev_non_linear_layers_solutions[k_system]);
 					else
-						non_linear_discr[k_system] = relax (k_system, 0.1, 0.5, *prev_non_linear_layers_solutions);
+						non_linear_discr[k_system] = relax (k_system, 0.1, 0.8, prev_non_linear_layers_solutions[k_system]);
 
 
 					// non_linear_layers_solutions contains entire _new_ solution 
-					prev_non_linear_layers_solutions->Substract (non_linear_layers_solutions[k_system]);
+					prev_non_linear_layers_solutions[k_system].Substract (non_linear_layers_solutions[k_system]);
 					norm = non_linear_layers_solutions[k_system].Norm ();
 					if (norm > 1e-15)
-						non_linear_dif[k_system] = prev_non_linear_layers_solutions->Norm () / non_linear_layers_solutions[k_system].Norm ();
+						non_linear_dif[k_system] = prev_non_linear_layers_solutions[k_system].Norm () / norm;
 					else
-						non_linear_dif[k_system] = prev_non_linear_layers_solutions->Norm ();
+						non_linear_dif[k_system] = prev_non_linear_layers_solutions[k_system].Norm ();
 
 					printf ("\t\tk_system: %i\tdif: %.3e\tnldiscr: %.3e\n", k_system, non_linear_dif[k_system], non_linear_discr[k_system]);
 					sum_non_linear_dif += non_linear_dif[k_system];
@@ -134,7 +171,7 @@ bool Task_convec::solve_task (int solver_param[][5])
 		}
 
 		delete[] non_linear_dif;
-		delete prev_non_linear_layers_solutions;
+		delete[] prev_non_linear_layers_solutions;
 		delete[] non_linear_layers_solutions;
 		non_linear_layers_solutions = NULL;
 		return true;
@@ -283,29 +320,29 @@ double Task_convec::relax (int k_system, const MathVector & prev_non_linear_laye
 			x2 = a + (b - a) / c;
 			non_linear_layers_solutions[k_system].Linear_Combination (*sol, x2, prev_non_linear_layer_solution, 1.0 - x2);
 
-			//t1 = clock ();
+			t1 = clock ();
 
 			build_system (k_system);
 
-			//t2 = clock ();
-			//ms = (double)(t2 - t1);
-			//printf ("time spend building system: %lf s\n", ms / 1000);
+			t2 = clock ();
+			ms = (double)(t2 - t1);
+			printf ("time spend building system: %lf s\n", ms / 1000);
 
-			//t1 = clock ();
+			t1 = clock ();
 
 			apply_boundary_conditions (k_system);
 
-			//t2 = clock ();
-			//ms = (double)(t2 - t1);
-			//printf ("time spend applying boundary cond: %lf s\n", ms / 1000);
+			t2 = clock ();
+			ms = (double)(t2 - t1);
+			printf ("time spend applying boundary cond: %lf s\n", ms / 1000);
 
-			//t1 = clock ();
+			t1 = clock (); 
 
 			eq_matrixes[k_system].mult_A_v (non_linear_layers_solutions[k_system], mv, res_omp, par_num_threads);
 
-			//t2 = clock ();
-			//ms = (double)(t2 - t1);
-			//printf ("time spend multiplying: %lf s\n", ms / 1000);
+			t2 = clock ();
+			ms = (double)(t2 - t1);
+			printf ("time spend multiplying: %lf s\n", ms / 1000);
 
 			mv->Substract (*(eq_matrixes[k_system].f));
 			y2 = mv->Norm ();
@@ -322,29 +359,29 @@ double Task_convec::relax (int k_system, const MathVector & prev_non_linear_laye
 
 			x1 = b - (b - a) / c;
 			non_linear_layers_solutions[k_system].Linear_Combination (*sol, x1, prev_non_linear_layer_solution, 1.0 - x1);
-			//t1 = clock ();
+			t1 = clock ();
 
 			build_system (k_system);
 
-			//t2 = clock ();
-			//ms = (double)(t2 - t1);
-			//printf ("time spend building system: %lf s\n", ms / 1000);
+			t2 = clock ();
+			ms = (double)(t2 - t1);
+			printf ("time spend building system: %lf s\n", ms / 1000);
 
-			//t1 = clock ();
+			t1 = clock ();
 
 			apply_boundary_conditions (k_system);
 
-			//t2 = clock ();
-			//ms = (double)(t2 - t1);
-			//printf ("time spend applying boundary cond: %lf s\n", ms / 1000);
+			t2 = clock ();
+			ms = (double)(t2 - t1);
+			printf ("time spend applying boundary cond: %lf s\n", ms / 1000);
 
-			//t1 = clock ();
+			t1 = clock ();
 
 			eq_matrixes[k_system].mult_A_v (non_linear_layers_solutions[k_system], mv, res_omp, par_num_threads);
 
-			//t2 = clock ();
-			//ms = (double)(t2 - t1);
-			//printf ("time spend multiplying: %lf s\n", ms / 1000);
+			t2 = clock ();
+			ms = (double)(t2 - t1);
+			printf ("time spend multiplying: %lf s\n", ms / 1000);
 
 			mv->Substract (*(eq_matrixes[k_system].f));
 			y1 = mv->Norm ();
@@ -461,6 +498,41 @@ void Task_convec::save_front_pos (char * file_name)
 	fclose (file);
 }
 
+void Task_convec::get_conditions (int k_system, char * file_name)
+{
+	int t, f;
+	switch (k_system)
+	{
+	case 1:
+	{
+		delete[] conditions[k_system];
+		conditions[k_system] = new Condition[mesh_pointer->get_dimentionality () * 2 + 1];
+
+		FILE * file = fopen (file_name, "r");
+		for (int i = 0, i_end = mesh_pointer->get_dimentionality () * 2 + 1; i < i_end; i++)
+		{
+			fscanf (file, "%i %i", &t, &f);
+			conditions[k_system][i].set_Type (t);
+			conditions[k_system][i].set_function (f);
+		}
+		fclose (file);
+
+		break;
+	}
+	default:
+	{
+		FILE * file = fopen (file_name, "r");
+		for (int i = 0, i_end = mesh_pointer->get_dimentionality () * 2; i < i_end; i++)
+		{
+			fscanf (file, "%i %i", &t, &f);
+			conditions[k_system][i].set_Type (t);
+			conditions[k_system][i].set_function (f);
+		}
+		fclose (file);
+	}
+	}
+}
+
 double Task_convec::get_function_value (int k_system, int k_function, double * coordinates, int area)
 {
 	double r = 0.0;
@@ -539,25 +611,25 @@ double Task_convec::function_FCondition (int k_system, double * coordinates, int
 		mesh_pointer->get_N_boundaries (cn);
 		switch (boundary)
 		{
-		case 0:
+		case 1:
 		{
 			point[0] = c0[0] + step;
 			point[1] = coordinates[1];
 			break;
 		}
-		case 1:
+		case 2:
 		{
 			point[0] = cn[0] - step;
 			point[1] = coordinates[1];
 			break;
 		}
-		case 2:
+		case 3:
 		{
 			point[0] = coordinates[0];
 			point[1] = c0[1] + step;
 			break;
 		}
-		case 3:
+		case 4:
 		{
 			point[0] = coordinates[0];
 			point[1] = cn[1] - step;
@@ -662,6 +734,7 @@ void Task_convec::build_system (int k_system)
 
 		double lambda;
 		double melt_coef;
+		double Pr;
 
 		for (int k_element = 0, k_element_end = mesh_pointer->get_n_elements (); k_element < k_element_end; k_element++) // go through elements
 		{
@@ -698,16 +771,19 @@ void Task_convec::build_system (int k_system)
 						min_T = T_val;
 				}
 				if ((min_T - SOLID_PRECIS < T_phase_change) && (T_phase_change < max_T + SOLID_PRECIS))
+				{
 					melt_coef += 1.0 / Ste;
+				}
 			}
 			else
 				melt_coef = 1.0;
 
+			Pr = get_Pr (k_element);
 
 			for (int i = 0; i < n_functions; i++)
 			{
 				iF = get_function_global_number (k_element, i);
-				if (iF != -1)
+				if ((iF != -1) && (!ffb[k_system][iF]))
 				{
 					for (int j = 0; j < n_functions; j++)
 					{
@@ -716,7 +792,7 @@ void Task_convec::build_system (int k_system)
 						if (jF != -1)
 						{
 							// add G
-							eq_matrixes[k_system].add_to_entry (iF, jF, G->Elem (i, j) * lambda / (lambda_fluid * PR));
+							eq_matrixes[k_system].add_to_entry (iF, jF, G->Elem (i, j) * lambda / (lambda_fluid * Pr));
 
 							// add M
 							eq_matrixes[k_system].add_to_entry (iF, jF, melt_coef * Time_coef->getElem (0) * M->Elem (i, j));
@@ -750,7 +826,7 @@ void Task_convec::build_system (int k_system)
 					for (int i = 0; i < n_functions; i++)
 					{
 						iF = get_function_global_number (k_element, i);
-						if (iF != -1)
+						if ((iF != -1) && (!ffb[k_system][iF]))
 						{
 							for (int j = 0; j < n_functions; j++)
 							{
@@ -795,6 +871,8 @@ void Task_convec::build_system (int k_system)
 		Time_coef = new MathVector (time_sampling);
 		get_time_coefficients (Time_coef);
 
+		double Gr;
+
 		for (int k_element = 0, k_element_end = mesh_pointer->get_n_elements (); k_element < k_element_end; k_element++) // go through elements
 		{
 			// get G matrix
@@ -825,10 +903,12 @@ void Task_convec::build_system (int k_system)
 			mesh.elements[k_element]->get_DDF (1, 0, DDx);
 			mesh.elements[k_element]->get_DDF (0, 1, DDy);
 
+			Gr = get_Gr (k_element);
+
 			for (int i = 0; i < n_functions; i++)
 			{
 				iF = get_function_global_number (k_element, i);
-				if (iF != -1)
+				if ((iF != -1) && (!ffb[k_system][iF]) && (state[iF] == 0))
 				{
 					for (int j = 0; j < n_functions; j++)
 					{
@@ -843,7 +923,7 @@ void Task_convec::build_system (int k_system)
 							eq_matrixes[k_system].add_to_entry (iF, jF, Time_coef->getElem (0) * M->Elem (i, j));
 
 							// add D (dT/dx) into f
-							eq_matrixes[k_system].add_to_f_entry (iF, D->Elem (i, j) * T->getElem (j) * GR);
+							eq_matrixes[k_system].add_to_f_entry (iF, D->Elem (i, j) * T->getElem (j) * Gr);
 
 							// add and substract partial derivatives
 							for (int k = 0; k < n_functions; k++)
@@ -874,7 +954,7 @@ void Task_convec::build_system (int k_system)
 					for (int i = 0; i < n_functions; i++)
 					{
 						iF = get_function_global_number (k_element, i);
-						if (iF != -1)
+						if ((iF != -1) && (!ffb[k_system][iF]) && (state[iF] == 0))
 						{
 							for (int j = 0; j < n_functions; j++)
 							{
@@ -927,7 +1007,7 @@ void Task_convec::build_system (int k_system)
 			for (int i = 0; i < n_functions; i++)
 			{
 				iF = get_function_global_number (k_element, i);
-				if (iF != -1)
+				if ((iF != -1) && (!ffb[k_system][iF]) && (state[iF] == 0))
 				{
 					for (int j = 0; j < n_functions; j++)
 					{
@@ -1008,7 +1088,6 @@ void Task_convec::print_solutions (int knliter)
 
 void Task_convec::print_solutions ()
 {
-	// picture for every non-linear solution 
 	std::vector<double> local_time_stamps;
 	bool save_solution = false;
 
@@ -1043,7 +1122,7 @@ void Task_convec::print_solutions ()
 		for (int k_system = 0; k_system < n_systems; k_system++)
 		{
 			// fprint solution
-			if (current_time_layer % 10 == 0)
+			//if (current_time_layer % 100 == 0)
 			{
 				for (size_t i = 0, i_end = local_time_stamps.size (); i < i_end; i++)
 				{
@@ -1111,7 +1190,6 @@ void Task_convec::print_solutions ()
 				painter->reset ();
 				set_symmetry (0);
 			}
-
 		}
 		delete c;
 
@@ -1193,9 +1271,23 @@ void Task_convec::apply_boundary_conditions (int k_system)
 
 void Task_convec::apply_first_boundary_conditions (int k_system)
 {
-	Task::apply_first_boundary_conditions (k_system);
+	// apply first boundary conditions
+	{
+		double coord[2];
 
-	// add stuff
+		// set diagonal element if ffb = true
+		for (int iF = 0; iF < N_functions; iF++)
+		{
+			if (ffb[k_system][iF])
+			{
+				mesh_pointer->get_node_coordinates (iF, coord);
+				eq_matrixes[k_system].set_entry (iF, iF, 1.0);
+				eq_matrixes[k_system].set_f_entry (iF, function_FCondition (k_system, coord, 0, ffb[k_system][iF]));
+			}
+		}
+	}
+
+	// add extra stuff
 	switch (k_system)
 	{
 	case 0:
@@ -1276,63 +1368,198 @@ void Task_convec::apply_first_boundary_conditions (int k_system)
 		}
 		break;
 	}
-	// zero if solid
 	case 1:
-	case 2:
 	{
-		int area;
-		bool zerout;
-		int iF;
-		int n_functions;
+		double coord[2];
 
-		for (int k_element = 0, k_element_end = mesh_pointer->get_n_elements (); k_element < k_element_end; k_element++) // go through elements
+		for (int iF = 0; iF < N_functions; iF++)
 		{
-			zerout = false;
-			area = mesh_pointer->get_area (k_element);
-			n_functions = mesh_pointer->get_amount_non_zero_functions (k_element);
-
+			mesh_pointer->get_node_coordinates (iF, coord);
+			if (state[iF] == 1)
 			{
-				// for non-melt
-				if (MELT_SETUP == 0)
-				{
-					if (area == 2)
-						zerout = true;
-				}
-				if (MELT_SETUP == 1)
-				{
-					bool solid = true;
-					for (int i = 0; i < n_functions && solid; i++)
-					{
-						iF = get_function_global_number (k_element, i);
-						if (iF != -1)
-						{
-							if (previous_time_layers_solutions[0][0].getElem (iF) > T_phase_change - SOLID_PRECIS)
-								solid = false;
-						}
-					}
-					if (solid)
-						zerout = true;
-				}
+				eq_matrixes[k_system].set_entry (iF, iF, 1.0);
+				eq_matrixes[k_system].set_f_entry (iF, 0.0);
 			}
 
-			if (zerout)
+			if (state[iF] == 2)
 			{
-				for (int i = 0; i < n_functions; i++)
-				{
-					iF = get_function_global_number (k_element, i);
-					if (iF != -1)
-					{
-						eq_matrixes[k_system].clear_row (iF); // replace row
-						eq_matrixes[k_system].set_entry (iF, iF, 1.0);
-						eq_matrixes[k_system].set_f_entry (iF, 0.0);
-					}
-				} 
+				eq_matrixes[k_system].set_entry (iF, iF, function_FCondition (1, coord, 0, conditions[k_system][4].Type ()));
+				eq_matrixes[k_system].set_f_entry (iF, 0.0);
+			}
+		}
+
+	}
+	case 2:
+	{
+		double coord[2];
+
+		for (int iF = 0; iF < N_functions; iF++)
+		{
+			mesh_pointer->get_node_coordinates (iF, coord);
+			if (state[iF] > 0)
+			{
+				eq_matrixes[k_system].set_entry (iF, iF, 1.0);
+				eq_matrixes[k_system].set_f_entry (iF, 0.0);
 			}
 		}
 		break;
 
 	}
 	}
+}
+
+void Task_convec::apply_second_boundary_conditions (int k_system)
+{
+}
+
+void Task_convec::set_ffb_flags ()
+{
+	ffb = new int *[n_systems];
+	for (int i = 0; i < n_systems; i++)
+	{
+		ffb[i] = new int[N_functions];
+		for (int k = 0; k < N_functions; k++)
+		{
+			ffb[i][k] = 0;
+		}
+	} 
+
+	int boundary;
+	int iF;
+	MathVector * FCondition;
+	int * functions;
+	int f_amount;
+	int k_element;
+	int n1, n2;
+	
+	for (int k_system = 0; k_system < n_systems; k_system++)
+	{
+		// first condition by edges
+		for (int i_edge = 0, i_end = mesh_pointer->edges->get_n_entries (); i_edge < i_end; i_edge++)
+		{
+			// get edges's nodes
+			mesh_pointer->edges->get_edge_nodes (i_edge, &n1, &n2);
+			// get boundary number for those nodes
+			boundary = mesh_pointer->function_boundary_edge (n1, n2);
+			if (boundary != -1)
+			{
+				if (conditions[k_system][boundary].Type () == 1)
+				{
+					// find element with that edge
+					k_element = mesh_pointer->belonging_element (n1, n2);
+					// get amount of values to put into f (from element)
+					f_amount = mesh_pointer->get_amount_second_condition (k_element);
+
+					FCondition = new MathVector (f_amount);
+					functions = new int[f_amount];
+					// get functions that are not 0 on the edge
+					mesh_pointer->get_edge_functions (k_element, n1, n2, functions);
+
+					for (int i = 0; i < f_amount; i++)
+					{
+						iF = get_function_global_number (k_element, functions[i]);
+						ffb[k_system][iF] = conditions[k_system][boundary].Function();
+					}
+
+					delete FCondition;
+					delete[] functions;
+				}
+			}
+		}
+	}
+}
+
+void Task_convec::reset_states ()
+{
+	int area;
+	int zone;
+	int iF;
+	int n_functions;
+
+	for (int iF = 0; iF < N_functions; iF++)
+		state[iF] = 0;
+
+	for (int k_element = 0, k_element_end = mesh_pointer->get_n_elements (); k_element < k_element_end; k_element++) // go through elements
+	{
+		zone = 0; // fluid
+		area = mesh_pointer->get_area (k_element);
+		n_functions = mesh_pointer->get_amount_non_zero_functions (k_element);
+
+		// for non-melt
+		if (MELT_SETUP == 0)
+		{
+			if (area == 2)
+				zone = 1; // solid
+
+			for (int i = 0; i < n_functions; i++)
+			{
+				iF = get_function_global_number (k_element, i);
+				state[iF] = zone;
+			}
+		}
+		if (MELT_SETUP == 1)
+		{
+			for (int i = 0; i < n_functions; i++)
+			{
+				iF = get_function_global_number (k_element, i);
+				if (iF != -1)
+				{
+					if ((T_phase_change - SOLID_PRECIS < previous_time_layers_solutions[0][0].getElem (iF)) &&
+						(previous_time_layers_solutions[0][0].getElem (iF) < T_phase_change + SOLID_PRECIS))
+						zone = 2; // mush
+
+					if (previous_time_layers_solutions[0][0].getElem (iF) < T_phase_change - SOLID_PRECIS)
+						zone = 1; // solid
+
+					if (state[iF] < zone)
+						state[iF] = zone;
+				}
+			}
+		}
+	}
+}
+
+double Task_convec::get_Pr (int k_element)
+{
+	if (PRGRconst)
+		return PR;
+	double Pr = 0.0;
+	double v, c[1];
+	int i, i_end;
+
+	for (i = 0, i_end = mesh_pointer->get_amount_non_zero_functions (k_element); i < i_end; i++)
+	{
+		v = 0.0;
+		c[0] = previous_time_layers_solutions[0][0].getElem (mesh_pointer->get_function_global_number(k_element, i))
+			* THETA + T_min;
+		spline_Pr->get_solution_in_point (c, &v);
+		Pr += v;
+	}
+
+	Pr /= (double)i_end;
+	return Pr;
+}
+
+double Task_convec::get_Gr (int k_element)
+{
+	if (PRGRconst)
+		return GR;
+
+	double Gr = 0.0;
+	double v, c[1];
+	int i, i_end;
+
+	for (i = 0, i_end = mesh_pointer->get_amount_non_zero_functions (k_element); i < i_end; i++)
+	{
+		v = 0.0;
+		c[0] = previous_time_layers_solutions[0][0].getElem (mesh_pointer->get_function_global_number (k_element, i))
+			* THETA + T_min;
+		spline_Gr->get_solution_in_point (c, &v);
+		Gr += v;
+	}
+
+	Gr /= (double)i_end;
+	return Gr;
 }
 
 void Task_convec::set_n_systems ()
@@ -1343,9 +1570,18 @@ void Task_convec::set_n_systems ()
 	fprintf (log_file, "systems settled:\t%i\n", n_systems);
 }
 
+Task_convec::Task_convec ()
+{
+	ffb = NULL;
+	spline_Pr = NULL;
+	spline_Gr = NULL;
+	state = NULL;
+}
+
 Task_convec::Task_convec (char * file_param)
 {
 	FILE * file = fopen (file_param, "r");
+	fscanf (file, "%i", &PRGRconst);
 	fscanf (file, "%lf", &PR); // PR
 	fscanf (file, "%lf", &GR); // GR
 	fscanf (file, "%lf", &T_min); // minimum temp in the system
@@ -1375,4 +1611,26 @@ Task_convec::Task_convec (char * file_param)
 	}
 
 	fclose (file);
+
+	ffb = NULL;
+	spline_Pr = NULL;
+	spline_Gr = NULL;
+	state = NULL;
+}
+
+Task_convec::~Task_convec ()
+{
+	if (ffb != NULL)
+	{
+		for (int i = 0; i < n_systems; i++)
+			delete[] ffb[i];
+		delete[] ffb;
+	}
+
+	if (spline_Pr != NULL)
+		delete spline_Pr;
+	if (spline_Gr != NULL)
+		delete spline_Gr;
+	if (state != NULL)
+		delete[] state;
 }

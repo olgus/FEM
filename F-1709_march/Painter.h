@@ -181,6 +181,7 @@ public:
 	void add_isoline (double sp_iso_value);
 	void add_area_dividers ();
 	void set_point_size (double Point_size);
+	void add_mesh_markers ();
 
 	// vector field
 	void draw_gradient_field (int K_system); // draw gradient field

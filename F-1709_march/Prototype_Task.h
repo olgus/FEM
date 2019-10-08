@@ -20,11 +20,11 @@ template <class Type_Mesh>
 class Task : public Task_pointer
 {
 private:
+	bool SR; // flag of derivative by SR method
+protected:
 	// setting section
 	virtual void get_conditions (int k_system, char * file_name); // gets boundary conditions
 
-	bool SR; // flag of derivative by SR method
-protected:
 	Painter * painter;
 
 	int symmetrical; // flag of vertical symmetry, 0 - none, 1 - absolute, 2 - with sign change

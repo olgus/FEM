@@ -8,10 +8,11 @@
 
 namespace NS_Triangular_Mesh_Delaunay
 {
-#define PRECIS 1e-10
-#define MAX_LISTING_SIZE 16
-#define MIN_DISTANCE 1e-10
-#define AREA_DEGENERATE_TRIANGLE 1e-10
+#define SIDE_SIZE 1e-5
+#define PRECIS 1e-13
+#define MAX_LISTING_SIZE 128
+#define MIN_DISTANCE 1e-13
+#define AREA_DEGENERATE_TRIANGLE 1e-12
 
 	struct Triangle_data
 	{
@@ -80,7 +81,7 @@ namespace NS_Triangular_Mesh_Delaunay
 		~Tree_of_triangles ();
 	};
 
-	class Triangular_Mesh_Delaunay : public Mesh <Node_2D, Element>, public TMD_pointer
+	class Triangular_Mesh_Delaunay : public Mesh <Node_2D, Triangle>, public TMD_pointer
 	{
 	private:
 		// point generator
@@ -108,6 +109,8 @@ namespace NS_Triangular_Mesh_Delaunay
 
 		bool closeness (double * point);
 		int point_in_within_bf (int bf, double * point);
+
+		double get_triangle_area (int k_triangle);
 	public:
 		Triangular_Mesh_Delaunay ();
 		Triangular_Mesh_Delaunay (const Triangular_Mesh_Delaunay & tmd);
@@ -120,11 +123,13 @@ namespace NS_Triangular_Mesh_Delaunay
 
 		// build mesh
 		int build_mesh (char * file_input, char * file_nodes_output, char * file_elements_output);
-		int build_mesh_npg (char * file_input, char * file_nodes_output, char * file_elements_output);
+		int build_mesh_npg (char * file_input, char * file_points_input, char * file_nodes_output, char * file_elements_output);
 		// tree search
 		virtual int point_inside (double * coordinates) override; // returns element that has point
 																  // same as for triangular mesh
 		bool get_isoline_section (int k_element, double * q, double value, double * c1, double * c2) override;
 		void output (char * file_nodes, char * file_triangles) override;
+
+		double get_min_area ();
 	};
 }

@@ -97,7 +97,6 @@ namespace Triangulation
 		//std::vector <std::pair <Basic_Geometry::Point, Basic_Geometry::Point>> sides;
 
 		void read_data (char * file_input);
-		void output (char * file_output);
 		// generate on figure's unique sides
 		//void generate_on_a_side (int k_bf, const Master_Element & me);
 		void generate_on_sides ();
@@ -118,7 +117,8 @@ namespace Triangulation
 		void generate_points (char * file_input);
 
 		// if you don't want to generate again
-		void read_points (char * file_input);
+		void output (char * file_output);
+		void read_points (char * file_input, char * file_points_input);
 
 		std::vector<Point> gen_points;
 	};

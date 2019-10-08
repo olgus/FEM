@@ -302,6 +302,10 @@ void NS_Triangular_Mesh_Delaunay::Tree_of_triangles::node_division (Tree_Node * 
 	// if node was already divided then leave it
 	if (tree_node->next[0] != NULL)
 		return;
+
+	//// if the node rectange is already too small, cancel the division
+	//if ((fabs(tree_node->rect.c0[0] - tree_node->rect.cN[0]) < SIDE_SIZE) || (fabs (tree_node->rect.c0[1] - tree_node->rect.cN[1]) < SIDE_SIZE))
+	//	return;
 	// divide node geometrically making 4 new rectangles
 	for (int i = 0; i < 4; i++)
 	{
@@ -522,6 +526,7 @@ void NS_Triangular_Mesh_Delaunay::Triangular_Mesh_Delaunay::make_elements ()
 		double dist, l_dist;
 		for (int i = 0, i_end = (int)pg->gen_points.size (); i < i_end; i++)
 		{
+			printf ("%i ", i);
 			double point[2] = { pg->gen_points[i].x, pg->gen_points[i].y };
 			// check if isn't too close to other nodes
 			if (!closeness (point))
@@ -665,25 +670,56 @@ void NS_Triangular_Mesh_Delaunay::Triangular_Mesh_Delaunay::split_triangle (int 
 		int triangle;
 	};
 
-	std::queue<neibourhood_relation> neighbour_queue;
-	neibourhood_relation cur_triangle;
+	//std::queue<neibourhood_relation> neighbour_queue;
+	//neibourhood_relation cur_triangle;
+	//for (int i = 0; i < 3; i++)
+	//{
+	//	neighbour_queue.push ({ k_triangle, ib_triangles[k_triangle].neighbours[i] });
+	//	while (!neighbour_queue.empty ())
+	//	{
+	//		cur_triangle = neighbour_queue.front ();
+	//		neighbour_queue.pop ();
+	//		// if point in in the sphere
+	//		if (point_sphere_relation (k_node, cur_triangle.triangle))
+	//		{
+	//			// keep triangle to split
+	//			neighbourhood.push_back (cur_triangle.triangle);
+	//			// add neighbours except came_from
+	//			for (int k = 0; k < 3; k++)
+	//			{
+	//				if (ib_triangles[cur_triangle.triangle].neighbours[k] != cur_triangle.came_from)
+	//					neighbour_queue.push ({ cur_triangle.triangle, ib_triangles[cur_triangle.triangle].neighbours[k] });
+	//			}
+	//		}
+	//	}
+	//}
+
+	std::queue<int> neighbour_queue;
+	int cur_triangle;
+	std::set<int> visited_triangles;
+
 	for (int i = 0; i < 3; i++)
 	{
-		neighbour_queue.push ({ k_triangle, ib_triangles[k_triangle].neighbours[i] });
+		neighbour_queue.push (ib_triangles[k_triangle].neighbours[i]);
 		while (!neighbour_queue.empty ())
 		{
 			cur_triangle = neighbour_queue.front ();
 			neighbour_queue.pop ();
 			// if point in in the sphere
-			if (point_sphere_relation (k_node, cur_triangle.triangle))
+			if (cur_triangle != -1)
 			{
-				// keep triangle to split
-				neighbourhood.push_back (cur_triangle.triangle);
-				// add neighbours except came_from
-				for (int k = 0; k < 3; k++)
+				// add triangle to visited
+				visited_triangles.insert (cur_triangle);
+				if (point_sphere_relation (k_node, cur_triangle))
 				{
-					if (ib_triangles[cur_triangle.triangle].neighbours[k] != cur_triangle.came_from)
-						neighbour_queue.push ({ cur_triangle.triangle, ib_triangles[cur_triangle.triangle].neighbours[k] });
+					// keep triangle to split
+					neighbourhood.push_back (cur_triangle);
+					// add neighbours except already visited
+					for (int k = 0; k < 3; k++)
+					{
+						if (visited_triangles.find (ib_triangles[cur_triangle].neighbours[k]) == visited_triangles.end ())
+							neighbour_queue.push (ib_triangles[cur_triangle].neighbours[k]);
+					}
 				}
 			}
 		}
@@ -1146,8 +1182,11 @@ void NS_Triangular_Mesh_Delaunay::Triangular_Mesh_Delaunay::tr_config (int k_tri
 
 bool NS_Triangular_Mesh_Delaunay::Triangular_Mesh_Delaunay::closeness (double * point)
 {
+	double min = 1e+10;
 	for (int i = 0, i_end = (int)nodes.size (); i < i_end; i++)
 	{
+		if (nodes[i].distance (point) < min)
+			min = nodes[i].distance (point);
 		if (nodes[i].distance (point) < PRECIS)
 			return true;
 	}
@@ -1162,6 +1201,21 @@ int NS_Triangular_Mesh_Delaunay::Triangular_Mesh_Delaunay::point_in_within_bf (i
 			return bf_triangles[bf].triangles[i];
 	}
 	return -1;
+}
+
+double NS_Triangular_Mesh_Delaunay::Triangular_Mesh_Delaunay::get_triangle_area (int k_triangle)
+{
+	int n[3];
+	double c[3][2];
+
+	get_base_nodes (k_triangle, n);
+	for (int k = 0; k < 3; k++)
+		get_node_coordinates (n[k], c[k]);
+	double area = (c[0][0] - c[2][0]) * (c[1][1] - c[2][1]) -
+		(c[1][0] - c[2][0]) * (c[0][1] - c[2][1]);
+	area = fabs (area) / 2.0;
+
+	return area;
 }
 
 NS_Triangular_Mesh_Delaunay::Triangular_Mesh_Delaunay::Triangular_Mesh_Delaunay ()
@@ -1238,6 +1292,8 @@ int NS_Triangular_Mesh_Delaunay::Triangular_Mesh_Delaunay::build_mesh (char * fi
 	printf ("\tgenerating points\n");
 	pg = new Triangulation::Point_Generator ();
 	pg->generate_points (file_input);
+	pg->output ("Source Files//TC//generated_points.txt");
+
 	printf ("\tmaking elements\n");
 	make_elements ();
 	numerate_functions ();
@@ -1248,11 +1304,11 @@ int NS_Triangular_Mesh_Delaunay::Triangular_Mesh_Delaunay::build_mesh (char * fi
 	return 1;
 }
 
-int NS_Triangular_Mesh_Delaunay::Triangular_Mesh_Delaunay::build_mesh_npg (char * file_input, char * file_nodes_output, char * file_elements_output)
+int NS_Triangular_Mesh_Delaunay::Triangular_Mesh_Delaunay::build_mesh_npg (char * file_input, char * file_points_input, char * file_nodes_output, char * file_elements_output)
 {
 	printf ("\tgenerating points\n");
 	pg = new Triangulation::Point_Generator ();
-	pg->read_points (file_input);
+	pg->read_points (file_input, file_points_input);
 	printf ("\tmaking elements\n");
 	make_elements ();
 	numerate_functions ();
@@ -1296,8 +1352,8 @@ void NS_Triangular_Mesh_Delaunay::Triangular_Mesh_Delaunay::output (char * file_
 	//int nodes[3];
 	for (int i = 0; i < n_elements; i++)
 	{
-		int n_functions = elements[i]->get_amount_of_base_nodes ();
-		for (int k = 0; k < n_functions; k++)
+		int n_nodes = elements[i]->get_amount_of_base_nodes ();
+		for (int k = 0; k < n_nodes; k++)
 		{
 			fprintf (log, "%i ", elements[i]->get_node (k));
 		}
@@ -1307,5 +1363,19 @@ void NS_Triangular_Mesh_Delaunay::Triangular_Mesh_Delaunay::output (char * file_
 	}
 
 	fclose (log);
+}
+
+double NS_Triangular_Mesh_Delaunay::Triangular_Mesh_Delaunay::get_min_area ()
+{
+	double min = 1e+10;
+	double area;
+
+	for (int i = 0; i < n_elements; i++)
+	{
+		area = get_triangle_area (i);
+		if (area < min)
+			min = area;
+	}
+	return min;
 }
 

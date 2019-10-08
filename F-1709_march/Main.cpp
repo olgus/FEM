@@ -170,20 +170,20 @@ int main (int argc, char *argv[])
 	}
 	{
 	//	double extra[2];
-	//	extra[0] = 10.0;
+	//	extra[0] = 1e-10;
 	//	extra[1] = 1e-10;
 	//	 
 	//	Spline_1D_Smooth sp1;
-	//	sp1.prepare ("Result//TC//water_bottom_cryst//det//detgraphs//cell_Vx_1_na_0.07300.txt", extra, 1.0 / 1.7);
+	//	sp1.prepare ("Source Files//TC//spline_Pr.txt", extra, 1.0 / 1.0);
 	//	sp1.solve_task ();
-	//	extra[0] = 10.0;
-	//	extra[1] = 1e-10;
-	//	Spline_1D_Smooth sp2;
-	//	sp2.prepare ("Result//TC//water_bottom_cryst//det//detgraphs//cell_Vx_5_na_0.07300.txt", extra, 1.0 / 1.7);
-	//	sp2.solve_task ();
-	//	Spline_1D_Smooth sp3;
-	//	sp3.prepare ("Result//TC//water_bottom_cryst//det//detgraphs//cell_Vx_8_na_0.07300.txt", extra, 1.0 / 1.7);
-	//	sp3.solve_task ();
+	//	//extra[0] = 10.0;
+	//	//extra[1] = 1e-10;
+	//	//Spline_1D_Smooth sp2;
+	//	//sp2.prepare ("Result//TC//water_bottom_cryst//det//detgraphs//cell_Vx_5_na_0.07300.txt", extra, 1.0 / 1.7);
+	//	//sp2.solve_task ();
+	//	//Spline_1D_Smooth sp3;
+	//	//sp3.prepare ("Result//TC//water_bottom_cryst//det//detgraphs//cell_Vx_8_na_0.07300.txt", extra, 1.0 / 1.7);
+	//	//sp3.solve_task ();
 	//	//Spline_1D_Smooth sp4;
 	//	//sp4.prepare ("Result//TC//water_bottom_cryst//det//detgraphs//T_vert_0.12000.txt", extra, 1.0 / 2.5);
 	//	//sp4.solve_task ();
@@ -205,53 +205,53 @@ int main (int argc, char *argv[])
 	//	//std::vector<char *> plots = { };
 	//	std::vector<Spline_Pointer *> splines;
 	//	splines.push_back (&sp1);
-	//	splines.push_back (&sp2);
-	//	splines.push_back (&sp3);
+	//	//splines.push_back (&sp2);
+	//	//splines.push_back (&sp3);
 	//	//splines.push_back (&sp4);
 	//	//splines.push_back (&sp5);
 	//	//splines.push_back (&sp6);
 	//	//splines.push_back (&sp7);
 	//	////
-	//	std::vector<char *> names = { "49.35", "53.55", "56.7", "738", "861", "984", "1076.25" };
+	//	std::vector<char *> names = { " ", "53.55", "56.7", "738", "861", "984", "1076.25" };
 	//	Painter painter;
 	//	painter.initialize (argc, argv);
 	//	//painter.plot_rainbow ();
 	//	painter.add_names (names);
 	//	painter.set_figure_size (4);
-	//	painter.set_max_resolution (700);
+	//	painter.set_max_resolution (800);
 	//	painter.set_plot_line_width (3.0);
 	//	painter.set_plot_line_width (1.0);
-	//	painter.set_scale (1.0, 10.0);
-	//	painter.set_axes_scale (14, 13);
+	//	painter.set_scale (1.0, 1.0);
+	//	painter.set_axes_scale (10, 6);
 	//	painter.draw_plot (plots, splines);
-	//	painter.set_axis_names ("Y", "|Vx|");
-	//	double c0[] = {0.0, -0.8};
-	//	double cN[] = {35.0, 0.5};
+	//	painter.set_axis_names ("T", "Gr");
+	//	double c0[] = {-10.0, 9.0};
+	//	double cN[] = {10.0, 15.0};
 	//	painter.set_plot_boundaries (c0, cN);
 	//	painter.set_picture_name (" ");
-	//	painter.draw_to_file (L"Pictures//TC//water_bottom_cryst//graphs//Vx_na_cell_hor_cu_bw.png");
+	//	painter.draw_to_file (L"Pictures//TC//spline_Pr.png");
 
-	/////*	FILE * file_q_Table = fopen ("Result//Melt_SF//q_table.txt", "w");
+	///////*	FILE * file_q_Table = fopen ("Result//Melt_SF//q_table.txt", "w");
 
-	////	double ht = 0.05;
-	////	double t = 0.05;
-	////	double value;
-	////	double c[] = { 0.0 };
-	////	char name[128];
-	////	
-	////	for (int i = 1; t < 10.0; i++)
-	////	{
-	////		t = ht * i;
-	////		Spline_1D_Smooth sp1;
-	////		sprintf (name, "Result//Melt_SF//50 mm//hfb_t_%0.5lf.txt", t);
-	////		sp1.prepare (name, extra);
-	////		sp1.solve_task ();
+	//////	double ht = 0.05;
+	//////	double t = 0.05;
+	//////	double value;
+	//////	double c[] = { 0.0 };
+	//////	char name[128];
+	//////	
+	//////	for (int i = 1; t < 10.0; i++)
+	//////	{
+	//////		t = ht * i;
+	//////		Spline_1D_Smooth sp1;
+	//////		sprintf (name, "Result//Melt_SF//50 mm//hfb_t_%0.5lf.txt", t);
+	//////		sp1.prepare (name, extra);
+	//////		sp1.solve_task ();
 
-	////		sp1.get_solution_in_point (c, &value);
-	////		fprintf (file_q_Table, "%0.2lf %.16lf\n", t , value);
-	////	}
+	//////		sp1.get_solution_in_point (c, &value);
+	//////		fprintf (file_q_Table, "%0.2lf %.16lf\n", t , value);
+	//////	}
 
-	////	fclose (file_q_Table);*/
+	//////	fclose (file_q_Table);*/
 	}
 	{
 		//Free_mesh mesh;
@@ -902,6 +902,72 @@ int main (int argc, char *argv[])
 
 
 	{
+		Sleep (2000);
+		// mesh
+		Painter * painter = new Painter;
+		painter->initialize (argc, argv);
+
+		NS_Triangular_Mesh_Delaunay::Triangular_Mesh_Delaunay tmd;
+		//tmd.build_mesh_npg ("Source Files//TC//PG_data.txt", "Source Files//TC//generated_points.txt", "Source Files//TC//nodes.txt", "Source Files//TC//elements.txt");
+		//tmd.build_mesh ("Source Files//TC//PG_data.txt", "Source Files//TC//nodes.txt", "Source Files//TC//elements.txt");
+		int n;
+		tmd.build_Mesh ("Source Files//TC//nodes.txt", "Source Files//TC//elements.txt", &n);
+		Mesh_Prototype * mesh_pointer = &tmd;
+		painter->set_mesh (mesh_pointer); 
+		painter->set_max_resolution (1000);
+		painter->set_point_size (0.5);
+		painter->draw_mesh ();
+		painter->draw_to_file (L"Pictures//TC//mesh.png");
+		painter->reset ();
+
+		//double c0[] = {0.05, 0.8};
+		//double cN[] = {0.15, 0.9};
+		//painter->select_section (c0, cN);
+		//painter->add_mesh_markers ();
+		//painter->set_point_size (0.5);
+		//painter->set_max_resolution (1000);
+		//painter->draw_mesh ();
+		//painter->draw_to_file (L"Pictures//TC//mesh_closeup.png");
+		
+		printf ("minimum triangle area: %e\n", tmd.get_min_area ());
+		Sleep (2000);
+
+		painter->reset ();
+
+		Task_convec tc ("Source Files//TC//param.txt");
+		char * bound[] = { "Source Files//TC//cond_0.txt",
+			"Source Files//TC//cond_1.txt",
+			"Source Files//TC//cond_2.txt" };
+		tc.prepare ("Source Files//TC//nodes.txt", "Source Files//TC//elements.txt", bound, "Source Files//TC//time_layers.txt", "Source Files//TC//time_stamps.txt");
+		tc.painter_pointer (painter);
+
+		Task_pointer * tp = &tc;
+		painter->set_task (tp);
+		painter->set_max_resolution (900);
+		painter->reset ();
+
+		int param[][5] = { { SOLVER_METHOD_PARDISO, SOLVER_DECOMP_TYPE_LU, 30, 1, SOLVER_MKL_NO },
+		{ SOLVER_METHOD_PARDISO, SOLVER_DECOMP_TYPE_LU, 30, 1, SOLVER_MKL_NO } ,
+		{ SOLVER_METHOD_PARDISO, SOLVER_DECOMP_TYPE_D, 30, 1, SOLVER_MKL_NO } };
+
+		//char * sol[] = { "Result//TC//s0_t_0.10000.txt",
+		//	"Result//TC//s1_t_0.10000.txt",
+		//	"Result//TC//s2_t_0.10000.txt",
+		//};
+
+		//tc.start_from_selected_time_layer (0.10000, sol);
+		double ms;
+		clock_t t1, t2;
+		t1 = clock ();
+
+		tc.solve_task (param);
+
+		t2 = clock ();
+		ms = (double)(t2 - t1);
+		printf ("time: %lf s\n", ms / 1000);
+	}
+
+	{
 		//// mesh
 		//Painter * painter = new Painter;
 		//painter->initialize (argc, argv);
@@ -914,7 +980,7 @@ int main (int argc, char *argv[])
 		////painter->set_point_size (0.5);
 		////painter->draw_mesh ();
 		////painter->draw_to_file (L"Pictures//TC//mesh.png");
-		// 
+
 		//Sleep (2000);
 
 		//painter->reset ();
@@ -935,90 +1001,39 @@ int main (int argc, char *argv[])
 		//{ SOLVER_METHOD_PARDISO, SOLVER_DECOMP_TYPE_LU, 30, 1, SOLVER_MKL_NO } ,
 		//{ SOLVER_METHOD_PARDISO, SOLVER_DECOMP_TYPE_LU, 30, 1, SOLVER_MKL_NO } };
 
-		//char * sol[] = { "Result//TC//s0_t_0.07000.txt",
-		//	"Result//TC//s1_t_0.07000.txt",
-		//	"Result//TC//s2_t_0.07000.txt",
-		//};
+		//char * sol[3];
+		//for (int i = 0; i < 3; i++)
+		//	sol[i] = new char[128];
 
-		//tc.start_from_selected_time_layer (0.07000, sol);
-		//double ms;
-		//clock_t t1, t2;
-		//t1 = clock ();
+		//double time_layer;
+		//double st_time_layer = 0.14000;
 
-		//tc.solve_task (param);
+		//for (int k = 0; k < 1; k++)
+		//{
+		//	printf ("%i ", k);
 
-		//t2 = clock ();
-		//ms = (double)(t2 - t1);
-		//printf ("time: %lf s\n", ms / 1000);
-	}
+		//	time_layer = st_time_layer + k * 0.001;
+		//	for (int i = 0; i < 3; i++)
+		//	{
+		//		sol[i] = new char[128];
+		//		sprintf (sol[i], "Result//TC//water_bottom_cryst//s%i_t_%.5lf.txt", i, time_layer);
+		//	}
 
-	{
-		// mesh
-		Painter * painter = new Painter;
-		painter->initialize (argc, argv);
+		//	tc.start_from_selected_time_layer (time_layer, sol);
 
-		//NS_Triangular_Mesh_Delaunay::Triangular_Mesh_Delaunay tmd;
-		//tmd.build_mesh ("Source Files//TC//PG_data.txt", "Source Files//TC//nodes.txt", "Source Files//TC//elements.txt");
-		//Mesh_Prototype * mesh_pointer = &tmd;
-		//painter->set_mesh (mesh_pointer); 
-		//painter->set_max_resolution (1000);
-		//painter->set_point_size (0.5);
-		//painter->draw_mesh ();
-		//painter->draw_to_file (L"Pictures//TC//mesh.png");
+		//	painter->set_min_max (-8.0, 8.0);
+		//	painter->set_max_resolution (800);
+		//	painter->draw_contour_lines (2, 12);
+		//	painter->draw_field (2, COLOR_SCALE_RAINBOW);
+		//	painter->draw_to_file (L"Pictures//TC//pic2.png");
+		//	//char file_name[128];
+		//	//double bound[] = {0.08, 0.2};
 
-		Sleep (2000);
-
-		painter->reset ();
-
-		Task_convec tc ("Source Files//TC//param.txt");
-		char * bound[] = { "Source Files//TC//cond_0.txt",
-			"Source Files//TC//cond_1.txt",
-			"Source Files//TC//cond_2.txt" };
-		tc.prepare ("Source Files//TC//nodes.txt", "Source Files//TC//elements.txt", bound, "Source Files//TC//time_layers.txt");
-		tc.painter_pointer (painter);
-
-		Task_pointer * tp = &tc;
-		painter->set_task (tp);
-		painter->set_max_resolution (900);
-		painter->reset ();
-
-		int param[][5] = { { SOLVER_METHOD_PARDISO, SOLVER_DECOMP_TYPE_LU, 30, 1, SOLVER_MKL_NO },
-		{ SOLVER_METHOD_PARDISO, SOLVER_DECOMP_TYPE_LU, 30, 1, SOLVER_MKL_NO } ,
-		{ SOLVER_METHOD_PARDISO, SOLVER_DECOMP_TYPE_LU, 30, 1, SOLVER_MKL_NO } };
-
-		char * sol[3];
-		for (int i = 0; i < 3; i++)
-			sol[i] = new char[128];
-
-		double time_layer;
-		double st_time_layer = 0.14000;
-
-		for (int k = 0; k < 1; k++)
-		{
-			printf ("%i ", k);
-
-			time_layer = st_time_layer + k * 0.001;
-			for (int i = 0; i < 3; i++)
-			{
-				sol[i] = new char[128];
-				sprintf (sol[i], "Result//TC//water_bottom_cryst//s%i_t_%.5lf.txt", i, time_layer);
-			}
-
-			tc.start_from_selected_time_layer (time_layer, sol);
-
-			painter->set_min_max (-8.0, 8.0);
-			painter->set_max_resolution (800);
-			painter->draw_contour_lines (2, 12);
-			painter->draw_field (2, COLOR_SCALE_RAINBOW);
-			painter->draw_to_file (L"Pictures//TC//pic2.png");
-			//char file_name[128];
-			//double bound[] = {0.08, 0.2};
-
-			//sprintf (file_name, "Result//TC//water_bottom_cryst//det//cell_Vx_1_na_%.5lf.txt", time_layer);
-			//double w[] = {1.0, 1.0};
-			//tc.save_slice_first_derivative (2, 1, "Source Files//TC//slice_cell.txt", file_name, true);
-			//tc.save_slice (0, "Source Files//TC//slice_T_vert.txt", file_name, true);
-			//tc.save_front_pos (file_name);
-		}
+		//	//sprintf (file_name, "Result//TC//water_bottom_cryst//det//cell_Vx_1_na_%.5lf.txt", time_layer);
+		//	//double w[] = {1.0, 1.0};
+		//	//tc.save_slice_first_derivative (2, 1, "Source Files//TC//slice_cell.txt", file_name, true);
+		//	//tc.save_slice (0, "Source Files//TC//slice_T_vert.txt", file_name, true);
+		//	//tc.save_front_pos (file_name);
+		//}
 	}
 }
